@@ -1,0 +1,14 @@
+.paiDistintivo {
+    display: flex;
+    gap: 8px;
+}
+
+.distintivo {
+    background: var(--distintivo-bg);
+    color: var(--destaque-bg);
+    padding: 0.25rem 0.63rem ;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+    font-size: var(--texto-padrao);
+}

@@ -1,0 +1,19 @@
+@import url(../style.css);
+@import url(painel.css);
+
+#abaDetalhes .voltar {
+    padding: 24px;
+    font-size: var(--texto-padrao);
+    display: block;
+    color: var(--texto-padrao-bg);
+}
+
+#abaDetalhes .painel {
+    background: var(--padrao-bg);
+    color: var(--texto-bg-normal);
+}
+
+#abaDetalhes .painel h1 {
+    color: var(--destaque-bg);
+}
+

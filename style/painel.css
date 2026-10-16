@@ -1,0 +1,51 @@
+@import url(style.css);
+@import url(componentes/painel.css);
+@import url(componentes/distintivo.css);
+@import url(componentes/painelDetalhes.css);
+@import url(informacoes.css);
+
+.dias {
+    display: flex;
+    flex-direction: column;
+}
+
+.dias li {
+    display: flex;
+    padding: 24px;
+    border-bottom: solid 1px var(--borda-bg);
+    font-size: var(--texto-pequeno);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data {
+    color: var(--destaque-bg);
+}
+
+.dias li :first-child { 
+    width: 40px; 
+    font-weight: bold;
+}
+
+
+.dias li :nth-child(2) { 
+    width: 80px; 
+    font-size: var(--texto-padrao);
+    font-weight: bold;
+    
+}
+.dias li :nth-child(3) { 
+    color: var(--texto-bg-normal);
+    width: 90px; 
+    font-weight: normal;
+    font-size: var(--texto-pequeno);
+
+}
+
+.dias li :nth-child(4) { 
+    color: var(--texto-bg-normal);
+    width: 50px; 
+    font-weight: normal;
+    font-size: var(--texto-pequeno);
+
+}

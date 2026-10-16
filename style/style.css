@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --padrao-bg: #101719;
+    --secundario-bg: #131E21;
+    --destaque-bg: #C8F887;
+    --texto-bg-normal: #F3F7F5;
+    --texto-bg-secundario: #9AAEB1;
+    --distintivo-bg: #1B272B;
+    --borda-bg: #354448;
+    
+    --texto-pequeno: 12px;
+    --texto-padrao: 14px;
+    --texto-medio: 16px;
+    --texto-grande: 18px;
+    --texto-extra-grande: 24px;
+}
+
+* {
+    font-family: "IBM Plex Mono";
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background: var(--padrao-bg);
+    color: var(--texto-bg-normal);
+}
+
+.botao {
+    height: 52px;
+    position: fixed;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    width: calc(100% - 48px);
+    border-radius: 200px;
+    margin: 24px;
+    background: var(--destaque-bg);
+    color: var(--padrao-bg);
+    font-size: var(--texto-grande);
+    font-weight: bold;
+    bottom: 0px;
+}

@@ -1,0 +1,50 @@
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    background: var(--secundario-bg);
+}
+
+.informacoes div {
+    display: flex;
+    align-items: center;
+    padding: 0px 24px;
+}
+
+.informacoes label {
+    color: var(--texto-bg-normal);
+    font-size: var(--texto-padrao);
+    width: 100%;
+}
+
+.informacoes input {
+    font-family: "Space Grotesk";
+    height: 52px;
+    width: 100%;
+    text-align: right;
+    background: none;
+    border: none;
+    color: var(--texto-bg-secundario);
+    font-size: var(--texto-extra-grande);
+    outline: none;
+}
+
+input:focus {
+    color: var(--texto-bg-padrao);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.calculoDetalhes {
+    background: var(--texto-padrao-bg);
+}
+
+.calculoDetalhes label {
+    color: var(--texto-bg-secundario);
+}
+
+.calculoDetalhes input {
+    color: var(--texto-bg-secundario);
+    font-size: var(--texto-padrao);
+}
