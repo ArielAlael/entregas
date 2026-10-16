@@ -1,4 +1,4 @@
-import data from "../../../data/data.json" with { type: "json" }
+import { data } from "../../../data/data.js"
 import { criarElementoPainel } from "../../elementos/criarElementoPainel.js"
 import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba } from "../../auxiliares/padronizacao.js"
 

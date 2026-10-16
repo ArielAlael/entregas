@@ -1,5 +1,5 @@
 import { renderizarAbaDetalhes } from "../renderizarAbaDetalhes.js"
-import { colocarNaAba } from "../../auxiliares/padronizacao.js"
+import { colocarNaAba, novoId } from "../../auxiliares/padronizacao.js"
 import { criarElementoBotao } from "../../elementos/criarElementoBotao.js"
 
 export const botaoNovoDia = () => {
@@ -9,7 +9,7 @@ export const botaoNovoDia = () => {
     const botao = criarElementoBotao(descricao)
 
     const novoDia = {
-        id: 0,
+        id: novoId(),
         dia: "00-00-0000",
         valor: 0,
         entregas: 0,

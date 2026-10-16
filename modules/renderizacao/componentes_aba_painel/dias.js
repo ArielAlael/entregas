@@ -1,4 +1,4 @@
-import data from "../../../data/data.json" with { type: "json" }
+import { data } from "../../../data/data.js"
 import { colocarNaAba } from "../../auxiliares/padronizacao.js"
 import { criarElementoDia } from "../../elementos/criarElementoDia.js"
 import { renderizarAbaDetalhes } from "../renderizarAbaDetalhes.js"

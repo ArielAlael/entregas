@@ -9,6 +9,6 @@ export const renderizarAbaDetalhes = (dia) => {
     voltar()
     painelDetalhe(dia)
     inputs(dia)
-    botaoSalvar()
+    botaoSalvar(dia)
     return
 }
