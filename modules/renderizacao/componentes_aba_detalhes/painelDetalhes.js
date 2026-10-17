@@ -14,8 +14,8 @@ export const painelDetalhe = ({dia, valor, quilometragem, entregas}) => {
         litrosGastos: calcularListrosGastos(quilometragem)
     }
 
-    const painel = criarElementoPainel(geral)
+    const $painelDetalhes = criarElementoPainel(geral)
 
-    colocarNaAba(painel, "#abaDetalhes")
+    colocarNaAba($painelDetalhes, "#abaDetalhes")
 
 }

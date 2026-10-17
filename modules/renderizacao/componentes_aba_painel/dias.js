@@ -14,9 +14,7 @@ export const criarElementoDia = ({id, dia, valor, entregas, quilometragem}) => {
         </li>
     `
 
-    const elemento = gerarElementoDOM(novoElmento)
-
-    return elemento
+    return gerarElementoDOM(novoElmento)
 }
 
 export const dias = () => {

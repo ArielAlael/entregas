@@ -45,17 +45,14 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     </div>
     `
 
-    const elemento = gerarElementoDOM(novoElementoEditavel)
-
-    return elemento
+    return gerarElementoDOM(novoElementoEditavel)
 }
-
 
 export const inputs = (dia) => {
 
-    const paiInputs = criarInput(dia)
+    const $paiInputs = criarInput(dia)
 
-    colocarNaAba(paiInputs, "#abaDetalhes")
+    colocarNaAba($paiInputs, "#abaDetalhes")
 
     return
 }

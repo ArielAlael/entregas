@@ -33,6 +33,13 @@ export let data = [
         valor: 108,
         entregas: 18,
         quilometragem: 36
+    },
+    {
+        id: 6,
+        dia: "06-10-2026",
+        valor: 123,
+        entregas: 20,
+        quilometragem: 52
     }
 ]
 

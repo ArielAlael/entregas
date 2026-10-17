@@ -5,7 +5,7 @@ import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
 
 export const botaoSalvar = (dia) => {
 
-    const botao = criarElementoBotao("Salvar")
+    const $botao = criarElementoBotao("Salvar")
 
     const todosIds = data.map(({id}) => id)
 
@@ -16,11 +16,11 @@ export const botaoSalvar = (dia) => {
     } else {
         console.log("novo dia")
 
-        botao.addEventListener("click", () => {
+        $botao.addEventListener("click", () => {
             const att = [...data, dia]
             atualizarData(att)
         })
     }
 
-    colocarNaAba(botao, "#abaDetalhes")
+    colocarNaAba($botao, "#abaDetalhes")
 }

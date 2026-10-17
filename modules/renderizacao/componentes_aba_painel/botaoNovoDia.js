@@ -5,9 +5,7 @@ import { gerarElementoDOM } from "../../auxiliares/padronizacao.js"
 export const criarElementoBotao = (descricao) => {
 
     const novoElemento = `<a class="botao">${descricao}</a>`
-    const elemento = gerarElementoDOM(novoElemento)
-
-    return elemento
+    return gerarElementoDOM(novoElemento)
 
 } 
 
@@ -15,7 +13,7 @@ export const botaoNovoDia = () => {
 
     const descricao = "Novo Dia"
 
-    const botao = criarElementoBotao(descricao)
+    const $botao = criarElementoBotao(descricao)
 
     const novoDia = {
         id: novoId(),
@@ -25,9 +23,7 @@ export const botaoNovoDia = () => {
         quilometragem: 0
     }
 
-    botao.addEventListener("click", () => {
-        renderizarAbaDetalhes(novoDia)
-    })
+    $botao.addEventListener("click", () => renderizarAbaDetalhes(novoDia))
 
-    colocarNaAba(botao, "#abaPainel")
+    colocarNaAba($botao, "#abaPainel")
 }

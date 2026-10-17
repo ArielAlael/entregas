@@ -44,9 +44,7 @@ export const criarElementoPainel = (
         </div>
     `
     
-    const elemento = gerarElementoDOM(novoElemento)
-
-    return elemento
+    return gerarElementoDOM(novoElemento)
 
 }
 
@@ -68,7 +66,7 @@ export const painel = () => {
         litrosGastos: calcularListrosGastos(quilometragemTotal),
     }
     
-    const painel =  criarElementoPainel(geral)
+    const $painel =  criarElementoPainel(geral)
 
-    colocarNaAba(painel, "#abaPainel")
+    colocarNaAba($painel, "#abaPainel")
 }
