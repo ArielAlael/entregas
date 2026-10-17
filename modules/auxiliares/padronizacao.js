@@ -35,3 +35,5 @@ export const novoId = () => {
     const ultimoId = Math.max(...todosIds)
     return ultimoId + 1
 }
+
+export const buscarDia = (idBusca) => data.find(({id}) => id === idBusca)
