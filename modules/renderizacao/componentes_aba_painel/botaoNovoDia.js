@@ -1,6 +1,15 @@
 import { renderizarAbaDetalhes } from "../renderizarAbaDetalhes.js"
 import { colocarNaAba, novoId } from "../../auxiliares/padronizacao.js"
-import { criarElementoBotao } from "../../elementos/criarElementoBotao.js"
+import { gerarElementoDOM } from "../../auxiliares/padronizacao.js"
+
+export const criarElementoBotao = (descricao) => {
+
+    const novoElemento = `<a class="botao">${descricao}</a>`
+    const elemento = gerarElementoDOM(novoElemento)
+
+    return elemento
+
+} 
 
 export const botaoNovoDia = () => {
 
