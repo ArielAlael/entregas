@@ -1,9 +1,9 @@
 export const limparAbaPainel = () => {
-    document.querySelector("#abaPainel").textContent = ""
+    document.querySelector("#abaPainel").replaceChildren()
     return
 }
 
 export const limparAbaDetalhes = () => {
-    document.querySelector("#abaDetalhes").textContent = ""
+    document.querySelector("#abaDetalhes").replaceChildren()
     return
 }
