@@ -1,5 +1,5 @@
 import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba } from "../../auxiliares/padronizacao.js"
-import { criarElementoPainel } from "../../elementos/criarElementoPainel.js"
+import { criarElementoPainel } from "../componentes_aba_painel/painelPrincipal.js"
 
 export const painelDetalhe = ({dia, valor, quilometragem, entregas}) => {
 

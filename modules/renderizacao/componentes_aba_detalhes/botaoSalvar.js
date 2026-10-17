@@ -1,6 +1,7 @@
 import { atualizarData, data } from "../../../data/data.js"
 import { colocarNaAba } from "../../auxiliares/padronizacao.js"
-import { criarElementoBotao } from "../../elementos/criarElementoBotao.js"
+import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
+
 
 export const botaoSalvar = (dia) => {
 
