@@ -4,12 +4,20 @@ export const padronizarValor = (valor) => {
    return valor.toLocaleString(`pt-BR`, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
 
-export const gerarElementoDOM = (novoElemento) => {
-    const elemento = new DOMParser()
-        .parseFromString(novoElemento, "text/html")
-        .body.firstElementChild
+// export const gerarElementoDOM = (novoElemento) => {
+//     const elemento = new DOMParser()
+//         .parseFromString(novoElemento, "text/html")
+//         .body.firstElementChild
 
-    return elemento
+//     return elemento
+// }
+
+const template = document.createElement("template")
+
+export const gerarElementoDOM = (novoElemento) => {
+    template.innerHTML = novoElemento.trim()
+
+    return template.content.firstElementChild
 }
 
 // calculos
