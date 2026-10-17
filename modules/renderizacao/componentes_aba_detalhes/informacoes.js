@@ -1,15 +1,16 @@
-import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba, gerarElementoDOM, padronizarValor } from "../../auxiliares/padronizacao.js"
+import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba, gerarElementoDOM, padronizarDia, padronizarValor } from "../../auxiliares/padronizacao.js"
+import { painelDetalhe } from "./painelDetalhes.js"
 
 const criarInput = ({dia, valor, entregas, quilometragem}) => {
 
-    const [d, m, a] = dia.split("-")
+    const [a, m, d] = dia.split("-")
 
     const novoElementoEditavel = 
     `
     <div class="informacoes">
         <div>
             <label for="dia">Dia</label>
-            <input class="info" id="dia" type="date" value="${a}-${m}-${d}">
+            <input class="info" id="dia" type="date" value="${d}-${m}-${a}">
         </div>
     
         <div>
@@ -48,11 +49,45 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     return gerarElementoDOM(novoElementoEditavel)
 }
 
+const atualizarAba = (dia) => {
+
+    const $painel = document.querySelector(".painel")
+    const $inputs = document.querySelector(".informacoes")
+
+    if ($painel) {
+        $painel.remove()
+        $inputs.remove()
+    }
+
+    painelDetalhe(dia)
+    inputs(dia)
+
+} 
+
+const editarInfo = (dia, input) => {
+
+    let diaEditado = {}
+
+    input.id === "dia"
+        ? diaEditado = {...dia, [input.id]: padronizarDia(input.value)}
+        : diaEditado = {...dia, [input.id]: Number(input.value)}
+
+    return diaEditado
+}
+
 export const inputs = (dia) => {
 
     const $paiInputs = criarInput(dia)
 
     colocarNaAba($paiInputs, "#abaDetalhes")
 
-    return
+    const listaDeInputs = document.querySelectorAll(".info")
+
+    listaDeInputs.forEach((input) => {
+        input.addEventListener("blur", (e) => {
+            let diaEditado = editarInfo(dia, e.target)
+            atualizarAba(diaEditado)
+        })
+    })
+
 }

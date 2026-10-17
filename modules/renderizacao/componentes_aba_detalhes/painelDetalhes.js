@@ -1,5 +1,5 @@
 import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba } from "../../auxiliares/padronizacao.js"
-import { criarElementoPainel } from "../componentes_aba_painel/painelPrincipal.js"
+import { criarElementoPainel, painel } from "../componentes_aba_painel/painelPrincipal.js"
 
 export const painelDetalhe = ({dia, valor, quilometragem, entregas}) => {
 
@@ -15,7 +15,6 @@ export const painelDetalhe = ({dia, valor, quilometragem, entregas}) => {
     }
 
     const $painelDetalhes = criarElementoPainel(geral)
-
     colocarNaAba($painelDetalhes, "#abaDetalhes")
 
 }

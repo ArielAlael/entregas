@@ -37,3 +37,8 @@ export const novoId = () => {
 }
 
 export const buscarDia = (idBusca) => data.find(({id}) => id === idBusca)
+
+export const padronizarDia = (dia) => {
+    const [a, m, d] = dia.split("-")
+    return `${d}-${m}-${a}`
+}
