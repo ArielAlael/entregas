@@ -9,22 +9,22 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     <div class="informacoes">
         <div>
             <label for="dia">Dia</label>
-            <input id="dia" type="date" value="${a}-${m}-${d}">
+            <input class="info" id="dia" type="date" value="${a}-${m}-${d}">
         </div>
     
         <div>
             <label for="valor">Valor</label>
-            <input id="valor" type="number" value="${valor.toFixed(2)}">
+            <input class="info" id="valor" type="number" value="${valor.toFixed(2)}">
         </div>
 
         <div>
             <label for="entregas">Entregas</label>
-            <input id="entregas" type="number" value="${entregas}">
+            <input class="info" id="entregas" type="number" value="${entregas}">
         </div>
 
         <div>
             <label for="quilometragem">Km's</label>
-            <input id="quilometragem" type="number" value="${quilometragem}">
+            <input class="info" id="quilometragem" type="number" value="${quilometragem}">
         </div>
 
         <div class="calculoDetalhes">

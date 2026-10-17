@@ -26,4 +26,5 @@ export const botaoNovoDia = () => {
     $botao.addEventListener("click", () => renderizarAbaDetalhes(novoDia))
 
     colocarNaAba($botao, "#abaPainel")
+
 }

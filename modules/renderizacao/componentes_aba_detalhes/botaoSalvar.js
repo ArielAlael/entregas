@@ -1,7 +1,21 @@
 import { atualizarData, data } from "../../../data/data.js"
-import { colocarNaAba } from "../../auxiliares/padronizacao.js"
+import { colocarNaAba, novoId } from "../../auxiliares/padronizacao.js"
 import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
 
+const criarNovoDia = ({id}) => {
+
+    let [dia, valor, entregas, quilometragem] = document.querySelectorAll(".info")
+    
+    const [a, m, d] = dia.value.split("-")
+
+    atualizarData([...data, {
+        id,
+        dia: `${d}-${m}-${a}`, 
+        valocr: Number(valor.value),
+        entregas: Number(entregas.value),
+        quilometragem: Number(quilometragem.value)
+    }])
+}
 
 export const botaoSalvar = (dia) => {
 
@@ -10,15 +24,13 @@ export const botaoSalvar = (dia) => {
     const todosIds = data.map(({id}) => id)
 
     if (todosIds.includes(dia.id)) {
-        console.log("Dia Existe")
-
+        // console.log("Dia Existe")
 
     } else {
-        console.log("novo dia")
 
         $botao.addEventListener("click", () => {
-            const att = [...data, dia]
-            atualizarData(att)
+            criarNovoDia(dia)
+
         })
     }
 

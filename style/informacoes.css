@@ -33,7 +33,8 @@ input:focus {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
+    opacity: 0;
+    width: 0px;
 }
 
 .calculoDetalhes {
