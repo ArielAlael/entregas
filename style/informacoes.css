@@ -32,10 +32,10 @@ input:focus {
     color: var(--texto-bg-padrao);
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
     width: 0px;
-}
+} */
 
 .calculoDetalhes {
     background: var(--texto-padrao-bg);

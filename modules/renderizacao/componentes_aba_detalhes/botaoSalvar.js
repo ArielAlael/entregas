@@ -11,7 +11,7 @@ const criarNovoDia = ({id}) => {
     atualizarData([...data, {
         id,
         dia: `${d}-${m}-${a}`, 
-        valocr: Number(valor.value),
+        valor: Number(valor.value),
         entregas: Number(entregas.value),
         quilometragem: Number(quilometragem.value)
     }])
