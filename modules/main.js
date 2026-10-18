@@ -1,3 +1,4 @@
+import { alerta } from "./renderizacao/alerta.js";
 import { botaoNovoDia } from "./renderizacao/componentes_aba_painel/botaoNovoDia.js";
 import { renderizarAbaDetalhes } from "./renderizacao/renderizarAbaDetalhes.js";
 import { renderizarAbaPainel, } from "./renderizacao/renderizarAbaPainel.js";

@@ -1,5 +1,6 @@
 import { atualizarData, data } from "../../../data/data.js"
 import { colocarNaAba, novoId, padronizarDia } from "../../auxiliares/padronizacao.js"
+import { alerta } from "../alerta.js"
 import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
 
 const editarDia = (diaObjeto) => {
@@ -18,6 +19,7 @@ const editarDia = (diaObjeto) => {
 
     atualizarData(novaListaEditada)
 
+    alerta("Dia editado")
 }
 
 const criarNovoDia = ({id}) => {
@@ -31,6 +33,8 @@ const criarNovoDia = ({id}) => {
         entregas: Number($entregas.value),
         quilometragem: Number($quilometragem.value)
     }])
+
+    alerta("Novo dia criado com sucesso")
 }
 
 export const botaoSalvar = (dia) => {
