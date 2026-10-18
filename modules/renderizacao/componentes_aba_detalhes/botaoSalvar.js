@@ -1,16 +1,14 @@
 import { atualizarData, data } from "../../../data/data.js"
-import { colocarNaAba, novoId } from "../../auxiliares/padronizacao.js"
+import { colocarNaAba, novoId, padronizarDia } from "../../auxiliares/padronizacao.js"
 import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
 
 const editarDia = (diaObjeto) => {
 
-    let [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
+    const [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
     
-    const [a, m, d] = $dia.value.split("-")
-
     const diaEditado = {
         ...diaObjeto,
-        dia: `${d}-${m}-${a}`, 
+        dia: padronizarDia($dia.value), 
         valor: Number($valor.value),
         entregas: Number($entregas.value),
         quilometragem: Number($quilometragem.value)
@@ -24,13 +22,11 @@ const editarDia = (diaObjeto) => {
 
 const criarNovoDia = ({id}) => {
 
-    let [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
-    
-    const [a, m, d] = $dia.value.split("-")
+    const [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
 
     atualizarData([...data, {
         id,
-        dia: `${d}-${m}-${a}`, 
+        dia: padronizarDia($dia.value), 
         valor: Number($valor.value),
         entregas: Number($entregas.value),
         quilometragem: Number($quilometragem.value)

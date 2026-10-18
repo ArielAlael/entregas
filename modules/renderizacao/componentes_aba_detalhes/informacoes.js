@@ -3,14 +3,12 @@ import { painelDetalhe } from "./painelDetalhes.js"
 
 const criarInput = ({dia, valor, entregas, quilometragem}) => {
 
-    const [a, m, d] = dia.split("-")
-
     const novoElementoEditavel = 
     `
     <div class="informacoes">
         <div>
             <label for="dia">Dia</label>
-            <input class="info" id="dia" type="date" value="${d}-${m}-${a}">
+            <input class="info" id="dia" type="date" value="${padronizarDia(dia)}">
         </div>
     
         <div>
