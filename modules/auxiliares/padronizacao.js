@@ -13,10 +13,10 @@ export const padronizarValor = (valor) => {
 // }
 
 const template = document.createElement("template")
-
+let cont = 0
 export const gerarElementoDOM = (novoElemento) => {
     template.innerHTML = novoElemento.trim()
-
+    
     return template.content.firstElementChild
 }
 

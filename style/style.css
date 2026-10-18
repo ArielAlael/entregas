@@ -54,8 +54,6 @@ body {
         gap: 8px;
     width: 100%;
     margin: 24px;
-    bottom: 100px;
-
 }
 
 .card-aleta {
@@ -63,17 +61,24 @@ body {
         align-items: center;
     width: calc(100% - 48px);
     border-radius: 4px;
-    background: var(--texto-bg-normal);
-    color: var(--padrao-bg);
+    background: var(--secundario-bg);
+    color: var(--texto-bg-secundario);
     font-weight: bold;
     font-size: var(--texto-padrao);
 
     padding: 12px 0px;
-    box-shadow: 0px 0px 8px 1px #35444855;
+    box-shadow: 0px 0px 8px 1px var(--padrao-bg);
 
-    border: solid 1px var(--padrao-bg);
+    border: solid 1px var(--borda-bg);
 
     
+}
+
+
+.icon {
+    width: 16px;
+    fill: var(--texto-bg-secundario); /* Altera a cor de preenchimento */
+    margin-left: 16px;
 }
 
 .card-aleta p {

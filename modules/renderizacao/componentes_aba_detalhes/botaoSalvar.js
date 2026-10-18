@@ -19,7 +19,7 @@ const editarDia = (diaObjeto) => {
 
     atualizarData(novaListaEditada)
 
-    alerta("Dia editado")
+    alerta("Editado com sucesso", "sucesso")
 }
 
 const criarNovoDia = ({id}) => {
@@ -34,7 +34,7 @@ const criarNovoDia = ({id}) => {
         quilometragem: Number($quilometragem.value)
     }])
 
-    alerta("Novo dia criado com sucesso")
+    alerta("Criado com sucesso", "sucesso")
 }
 
 export const botaoSalvar = (dia) => {
@@ -44,7 +44,7 @@ export const botaoSalvar = (dia) => {
     colocarNaAba($botao, "#abaDetalhes")
 
     const todosIds = data.map(({id}) => id)
-
+   
     if (todosIds.includes(dia.id)) $botao.addEventListener("click", () => editarDia(dia))
         else $botao.addEventListener("click", () => criarNovoDia(dia))
 
