@@ -5,10 +5,15 @@
 
 .distintivo {
     background: var(--distintivo-bg);
+    border: solid 1px var(--borda-bg);
     color: var(--destaque-bg);
     padding: 0.25rem 0.63rem ;
     font-weight: bold;
     border-radius: 4px;
     text-align: center;
     font-size: var(--texto-padrao);
+} 
+
+#abaDetalhes .distintivo:only-child {
+    border: none;
 }

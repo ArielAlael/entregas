@@ -19,7 +19,7 @@
 }
 
 .data {
-    color: var(--destaque-bg);
+    color: var(--texto-bg-secundario);
 }
 
 .dias li :first-child { 
