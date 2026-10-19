@@ -13,7 +13,7 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     
         <div>
             <label for="valor">Valor</label>
-            <input placeholder="—" class="info" id="valor" type="number" value="${valor}">
+            <input placeholder="—" class="info" id="valor" type="number" value="${valor}" autofocus>
         </div>
 
         <div>
