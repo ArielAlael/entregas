@@ -13,7 +13,7 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     
         <div>
             <label for="valor">Valor</label>
-            <input class="info" id="valor" type="number" value="${valor.toFixed(2)}">
+            <input class="info" id="valor" type="number" value="${valor}">
         </div>
 
         <div>

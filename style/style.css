@@ -54,6 +54,7 @@ body {
         gap: 8px;
     width: 100%;
     margin: 24px;
+    margin-top: 66px;
 }
 
 .card-aleta {
@@ -65,15 +66,10 @@ body {
     color: var(--texto-bg-secundario);
     font-weight: bold;
     font-size: var(--texto-padrao);
-
     padding: 12px 0px;
     box-shadow: 0px 0px 8px 1px var(--padrao-bg);
-
     border: solid 1px var(--borda-bg);
-
-    
 }
-
 
 .icon {
     width: 16px;

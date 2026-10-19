@@ -2,6 +2,7 @@ import { atualizarData, data } from "../../../data/data.js"
 import { colocarNaAba, novoId, padronizarDia } from "../../auxiliares/padronizacao.js"
 import { alerta } from "../alerta.js"
 import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
+import { renderizarAbaDetalhes } from "../renderizarAbaDetalhes.js"
 
 const editarDia = (diaObjeto) => {
 
@@ -19,20 +20,24 @@ const editarDia = (diaObjeto) => {
 
     atualizarData(novaListaEditada)
 
-    alerta("Editado com sucesso", "sucesso")
+    alerta("Salvo com sucesso", "sucesso")
 }
 
 const criarNovoDia = ({id}) => {
 
     const [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
 
-    atualizarData([...data, {
+    const novoDia = {
         id,
         dia: padronizarDia($dia.value), 
         valor: Number($valor.value),
         entregas: Number($entregas.value),
         quilometragem: Number($quilometragem.value)
-    }])
+    }
+
+    atualizarData([...data, novoDia])
+
+    renderizarAbaDetalhes(novoDia)
 
     alerta("Criado com sucesso", "sucesso")
 }
