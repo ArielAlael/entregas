@@ -23,7 +23,7 @@ export const gerarElementoDOM = (novoElemento) => {
 // calculos
 export const calcularMediaKm = (valor, quilometragem) => Number((valor / quilometragem).toFixed(2))
 export const calcularMediaEntregas = (valor, entregas) => Number((valor / entregas).toFixed(2))
-export const calcularListrosGastos = (quilometragem) => Number((quilometragem / 28).toFixed(2))
+export const calcularListrosGastos = (quilometragem) => Number((quilometragem / (28).toString()).toFixed(2))
 
 export const colocarNaAba = (elemento, aba) => {
     const verificarAba = aba === "#abaPainel" ? "#abaPainel" : "#abaDetalhes"

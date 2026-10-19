@@ -17,10 +17,10 @@ export const botaoNovoDia = () => {
 
     const novoDia = {
         id: novoId(),
-        dia: "00-00-0000",
-        valor: 0,
-        entregas: 0,
-        quilometragem: 0
+        dia: "",
+        valor: "",
+        entregas: "",
+        quilometragem: ""
     }
 
     $botao.addEventListener("click", () => renderizarAbaDetalhes(novoDia))

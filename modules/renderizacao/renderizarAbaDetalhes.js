@@ -9,7 +9,6 @@ export const renderizarAbaDetalhes = (dia) => {
     limparAbaDetalhes()
     limparAbaPainel()
     voltar()
-    painelDetalhe(dia)
     inputs(dia)
     botaoSalvar(dia)
     return

@@ -1,5 +1,5 @@
 import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba, gerarElementoDOM, padronizarDia, padronizarValor } from "../../auxiliares/padronizacao.js"
-import { painelDetalhe } from "./painelDetalhes.js"
+import { alerta } from "../alerta.js"
 
 const criarInput = ({dia, valor, entregas, quilometragem}) => {
 
@@ -13,17 +13,17 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     
         <div>
             <label for="valor">Valor</label>
-            <input class="info" id="valor" type="number" value="${valor}">
+            <input placeholder="—" class="info" id="valor" type="number" value="${valor}">
         </div>
 
         <div>
             <label for="entregas">Entregas</label>
-            <input class="info" id="entregas" type="number" value="${entregas}">
+            <input placeholder="—" class="info" id="entregas" type="number" value="${entregas}">
         </div>
 
         <div>
             <label for="quilometragem">Km's</label>
-            <input class="info" id="quilometragem" type="number" value="${quilometragem}">
+            <input placeholder="—" class="info" id="quilometragem" type="number" value="${quilometragem}">
         </div>
 
         <div class="calculoDetalhes">
@@ -49,15 +49,10 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
 
 const atualizarAba = (dia) => {
 
-    const $painel = document.querySelector(".painel")
     const $inputs = document.querySelector(".informacoes")
 
-    if ($painel) {
-        $painel.remove()
-        $inputs.remove()
-    }
+    if ($inputs) $inputs.remove()
 
-    painelDetalhe(dia)
     inputs(dia)
 
 } 
@@ -68,7 +63,7 @@ const editarInfo = (dia, input) => {
 
     input.id === "dia"
         ? diaEditado = {...dia, [input.id]: padronizarDia(input.value)}
-        : diaEditado = {...dia, [input.id]: Number(input.value)}
+        : diaEditado = {...dia, [input.id]: input.value}
 
     return diaEditado
 }
@@ -78,14 +73,15 @@ export const inputs = (dia) => {
     const $paiInputs = criarInput(dia)
 
     colocarNaAba($paiInputs, "#abaDetalhes")
-
+ 
     const listaDeInputs = document.querySelectorAll(".info")
 
     listaDeInputs.forEach((input) => {
-        input.addEventListener("blur", (e) => {
-            let diaEditado = editarInfo(dia, e.target)
-            atualizarAba(diaEditado)
-        })
+
+        // input.addEventListener("blur", (e) => {
+        //     let diaEditado = editarInfo(dia, e.target)
+        //     atualizarAba(diaEditado)
+        // })
     })
 
 }
