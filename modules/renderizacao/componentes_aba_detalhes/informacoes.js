@@ -13,7 +13,7 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     
         <div>
             <label for="valor">Valor</label>
-            <input placeholder="—" class="info" id="valor" type="number" value="${valor}" autofocus>
+            <input placeholder="—" class="info" id="valor" type="number" value="${valor}">
         </div>
 
         <div>
@@ -74,14 +74,15 @@ export const inputs = (dia) => {
 
     colocarNaAba($paiInputs, "#abaDetalhes")
  
-    const listaDeInputs = document.querySelectorAll(".info")
+    const $valor = document.querySelector("#valor")
+    $valor.focus()
 
-    listaDeInputs.forEach((input) => {
+    // listaDeInputs.forEach((input) => {
 
-        // input.addEventListener("blur", (e) => {
-        //     let diaEditado = editarInfo(dia, e.target)
-        //     atualizarAba(diaEditado)
-        // })
-    })
+    //     input.addEventListener("blur", (e) => {
+    //         let diaEditado = editarInfo(dia, e.target)
+    //         atualizarAba(diaEditado)
+    //     })
+    // })
 
 }

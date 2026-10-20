@@ -12,19 +12,21 @@ export const criarElementoBotao = (descricao) => {
 export const botaoNovoDia = () => {
 
     const descricao = "Novo Dia"
-
     const $botao = criarElementoBotao(descricao)
 
-    const novoDia = {
+    const novaData = new Date()
+    const [dia, mes, ano] = [novaData.getDate(), novaData.getMonth() + 1, novaData.getFullYear()]
+    const diaAtual = `${dia}-${mes}-${ano}`
+
+    const novoDia = { 
         id: novoId(),
-        dia: "",
+        dia: diaAtual,
         valor: "",
         entregas: "",
         quilometragem: ""
     }
 
     $botao.addEventListener("click", () => renderizarAbaDetalhes(novoDia))
-
     colocarNaAba($botao, "#abaPainel")
 
 }
