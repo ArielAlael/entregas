@@ -1,5 +1,6 @@
-import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba, gerarElementoDOM, padronizarDia, padronizarValor } from "../../auxiliares/padronizacao.js"
-import { alerta } from "../alerta.js"
+import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba, gerarElementoDOM, padronizarDia } from "../../auxiliares/padronizacao.js"
+import { data } from "../../../data/data.js"
+import { editarDia } from "./botaoSalvar.js"
 
 const criarInput = ({dia, valor, entregas, quilometragem}) => {
 
@@ -47,26 +48,7 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     return gerarElementoDOM(novoElementoEditavel)
 }
 
-const atualizarAba = (dia) => {
 
-    const $inputs = document.querySelector(".informacoes")
-
-    if ($inputs) $inputs.remove()
-
-    inputs(dia)
-
-} 
-
-const editarInfo = (dia, input) => {
-
-    let diaEditado = {}
-
-    input.id === "dia"
-        ? diaEditado = {...dia, [input.id]: padronizarDia(input.value)}
-        : diaEditado = {...dia, [input.id]: input.value}
-
-    return diaEditado
-}
 
 export const inputs = (dia) => {
 
@@ -74,15 +56,13 @@ export const inputs = (dia) => {
 
     colocarNaAba($paiInputs, "#abaDetalhes")
  
+    const todosIds = data.map(({id}) => id)
     const $valor = document.querySelector("#valor")
-    $valor.focus()
 
-    // listaDeInputs.forEach((input) => {
+    if (!todosIds.includes(dia.id)) $valor.focus()
 
-    //     input.addEventListener("blur", (e) => {
-    //         let diaEditado = editarInfo(dia, e.target)
-    //         atualizarAba(diaEditado)
-    //     })
-    // })
+    const $quilometragem = document.querySelector("#quilometragem")
+    
+    $quilometragem.addEventListener("focusout", () => editarDia(dia))
 
 }

@@ -3,8 +3,18 @@ import { colocarNaAba, novoId, padronizarDia } from "../../auxiliares/padronizac
 import { alerta } from "../alerta.js"
 import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
 import { renderizarAbaDetalhes } from "../renderizarAbaDetalhes.js"
+import { inputs } from "./informacoes.js"
 
-const editarDia = (diaObjeto) => {
+const atualizarAba = (dia) => {
+
+    const $inputs = document.querySelector(".informacoes")
+
+    if ($inputs) $inputs.remove()
+
+    inputs(dia)
+} 
+
+export const editarDia = (diaObjeto) => {
 
     const [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
     
@@ -19,6 +29,8 @@ const editarDia = (diaObjeto) => {
     const novaListaEditada = data.map((d) => d.id === diaObjeto.id ? diaEditado : d)
 
     atualizarData(novaListaEditada)
+    atualizarAba(diaEditado)
+
 
     alerta("Salvo com sucesso", "sucesso")
 }

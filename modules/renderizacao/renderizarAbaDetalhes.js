@@ -11,5 +11,6 @@ export const renderizarAbaDetalhes = (dia) => {
     voltar()
     inputs(dia)
     botaoSalvar(dia)
+
     return
 }
