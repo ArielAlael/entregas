@@ -8,23 +8,22 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     const novoElementoEditavel = 
     `
     <div class="informacoes">
-        <div class="erro">
+        <div class="div-info">
             <label for="dia">Dia</label>
             <input class="info" id="dia" type="date" value="${padronizarDia(dia)}">
         </div>
     
-        <div>
+        <div class="div-info">
             <label for="valor">Valor</label>
-            <input placeholder="—" class="info erro-input" id="valor" type="number" value="${valor}">
-            <p class="erro">Valor não pode ser menor ou igual a 0</p>
+            <input placeholder="—" class="info" id="valor" type="number" value="${valor}">
         </div>
 
-        <div>
+        <div class="div-info">
             <label for="entregas">Entregas</label>
             <input placeholder="—" class="info" id="entregas" type="number" value="${entregas}">
         </div>
 
-        <div>
+        <div class="div-info">
             <label for="quilometragem">Km's</label>
             <input placeholder="—" class="info" id="quilometragem" type="number" value="${quilometragem}">
         </div>
@@ -50,15 +49,67 @@ const criarInput = ({dia, valor, entregas, quilometragem}) => {
     return gerarElementoDOM(novoElementoEditavel)
 }
 
+export const validarDados = (info, tipo="texto") => {
+
+    let config = ""
+
+    if (tipo === "texto") config = !isNaN(Number(info))
+        else if(tipo === "numero") config = isNaN(Number(info)) || Number(info) < 0
+    
+
+    if (info === "" || info === null || config) {
+        return true
+    }
+    
+}
+
 const validarInputs = ($paiInputs) => {
 
-    const listaDivs = $paiInputs.children
+    const listaInfo = document.querySelectorAll(".div-info")
 
-    const $data = listaDivs[0] 
-    const $valor = listaDivs[1] 
-    const $entregas = listaDivs[2] 
-    const $quilometragem = listaDivs[3]
-    
+    listaInfo.forEach(($elemento) => {
+
+        if (($elemento.children[0].innerText.toLowerCase() === "dia")) {
+
+            $elemento.addEventListener("focusout", (e) => {
+
+                const valorElemento = e.target.value
+                const p = document.createElement("p") 
+                
+                if (validarDados(valorElemento)) {
+                    if ($elemento.children[2]) $elemento.children[2].remove()
+                    $elemento.appendChild(p)
+                    $elemento.classList.add("erro")
+                    p.textContent = `${$elemento.children[0].innerText} nao pode ser igual ou menor que 0`
+                } else {
+                    $elemento.classList.remove("erro")
+                    if ($elemento.children[2]) $elemento.children[2].remove()
+                }
+            })
+
+        } else {
+
+            $elemento.addEventListener("focusout", (e) => {
+
+                const valorElemento = e.target.value
+                const p = document.createElement("p") 
+
+                if (validarDados(valorElemento, "numero")) {
+                    if ($elemento.children[2]) $elemento.children[2].remove()
+                    $elemento.appendChild(p)
+                    $elemento.classList.add("erro")
+                    p.textContent = `${$elemento.children[0].innerText} nao pode ser igual ou menor que 0`
+                } else if ($elemento.children[2]) {
+                    $elemento.classList.remove("erro")
+                    if ($elemento.children[2]) $elemento.children[2].remove()
+                }
+
+            })
+
+        }
+
+    })
+
 }
 
 export const inputs = (dia) => {
