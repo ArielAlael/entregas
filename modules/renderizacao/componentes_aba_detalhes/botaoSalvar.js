@@ -12,12 +12,13 @@ const atualizarAba = (dia) => {
     if ($inputs) $inputs.remove()
 
     inputs(dia)
+
 } 
 
 export const editarDia = (diaObjeto) => {
 
     const [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
-    
+
     const diaEditado = {
         ...diaObjeto,
         dia: padronizarDia($dia.value), 
@@ -31,6 +32,7 @@ export const editarDia = (diaObjeto) => {
     atualizarData(novaListaEditada)
     atualizarAba(diaEditado)
 
+    document.activeElement.blur()
 
     alerta("Salvo com sucesso", "sucesso")
 }
