@@ -3,14 +3,12 @@ import { colocarNaAba, novoId, padronizarDia } from "../../auxiliares/padronizac
 import { alerta } from "../alerta.js"
 import { criarElementoBotao } from "../componentes_aba_painel/botaoNovoDia.js"
 import { renderizarAbaDetalhes } from "../renderizarAbaDetalhes.js"
-import { inputs } from "./informacoes.js"
+import { inputs, validarDados } from "./informacoes.js"
 
 const atualizarAba = (dia) => {
 
     const $inputs = document.querySelector(".informacoes")
-
     if ($inputs) $inputs.remove()
-
     inputs(dia)
 
 } 
@@ -58,13 +56,30 @@ const criarNovoDia = ({id}) => {
 
 export const botaoSalvar = (dia) => {
 
-    const $botao = criarElementoBotao("Salvar")
+    const $botao = criarElementoBotao("Criar novo dia")
 
+    $botao.classList.add("salvar")
+
+    const [$dia, $valor, $entregas, $quilometragem] = document.querySelectorAll(".info")
+
+    if (
+        !validarDados($dia.value) 
+        && !validarDados($valor.value, "numero") 
+        && !validarDados($entregas.value, "numero")
+        && !validarDados($quilometragem.value, "numero")
+    ) {
+        $botao.disabled = false
+    } else {
+        $botao.disabled = true
+    }
+    
     colocarNaAba($botao, "#abaDetalhes")
 
     const todosIds = data.map(({id}) => id)
    
-    if (todosIds.includes(dia.id)) $botao.addEventListener("click", () => editarDia(dia))
-        else $botao.addEventListener("click", () => criarNovoDia(dia))
+    if (todosIds.includes(dia.id)) {
+        $botao.textContent = "Salvar"
+        $botao.addEventListener("click", () => editarDia(dia))
+    } else $botao.addEventListener("click", () => criarNovoDia(dia))
 
 }

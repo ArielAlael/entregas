@@ -6,11 +6,7 @@ export const voltar = () => {
     const novoElemento = `<a class="voltar">< Voltar</a>`
     const $elemento = gerarElementoDOM(novoElemento)
 
-    $elemento.addEventListener("click", () => {
-        renderizarAbaPainel()
-    })
-
-    document.querySelector("#abaDetalhes").appendChild($elemento)
+    $elemento.addEventListener("click", () => renderizarAbaPainel())
 
     colocarNaAba($elemento, "#abaDetalhes")
 

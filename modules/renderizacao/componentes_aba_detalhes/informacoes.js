@@ -1,6 +1,6 @@
 import { calcularListrosGastos, calcularMediaEntregas, calcularMediaKm, colocarNaAba, gerarElementoDOM, padronizarDia } from "../../auxiliares/padronizacao.js"
 import { data } from "../../../data/data.js"
-import { editarDia } from "./botaoSalvar.js"
+import { botaoSalvar, editarDia } from "./botaoSalvar.js"
 import { alerta } from "../alerta.js"
 
 const criarInput = ({dia, valor, entregas, quilometragem}) => {
@@ -63,7 +63,14 @@ export const validarDados = (info, tipo="texto") => {
     
 }
 
-const validarInputs = ($paiInputs) => {
+const renderizarBotaoSalvar = (dia) => {
+    const $botaoSalvar = document.querySelector(".salvar")
+
+    if ($botaoSalvar) $botaoSalvar.remove()
+    botaoSalvar(dia)
+}
+
+const validarInputs = ($paiInputs, dia) => {
 
     const listaInfo = document.querySelectorAll(".div-info")
 
@@ -80,11 +87,14 @@ const validarInputs = ($paiInputs) => {
                     if ($elemento.children[2]) $elemento.children[2].remove()
                     $elemento.appendChild(p)
                     $elemento.classList.add("erro")
-                    p.textContent = `${$elemento.children[0].innerText} nao pode ser igual ou menor que 0`
+                    p.textContent = `${$elemento.children[0].innerText} nao pode estar vazio`
                 } else {
                     $elemento.classList.remove("erro")
                     if ($elemento.children[2]) $elemento.children[2].remove()
                 }
+
+                renderizarBotaoSalvar(dia)
+
             })
 
         } else {
@@ -104,6 +114,8 @@ const validarInputs = ($paiInputs) => {
                     if ($elemento.children[2]) $elemento.children[2].remove()
                 }
 
+                renderizarBotaoSalvar(dia)
+
             })
 
         }
@@ -120,7 +132,7 @@ export const inputs = (dia) => {
     const $valor = document.querySelector("#valor")
     const $quilometragem = document.querySelector("#quilometragem")
 
-    validarInputs($paiInputs)
+    validarInputs($paiInputs, dia)
 
     const todosIds = data.map(({id}) => id)
 

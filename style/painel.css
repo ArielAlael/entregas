@@ -18,6 +18,10 @@
     align-items: center;
 }
 
+.dias li:active {
+    background: var(--secundario-bg);
+}
+
 .data {
     color: var(--texto-bg-secundario);
 }
